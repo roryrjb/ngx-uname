@@ -10,16 +10,21 @@ __Download Nginx source:__
 
 ```
 $ wget https://nginx.org/download/nginx-VERSION.tar.gz
-$ cat nginx-VERSION.tar.gz | gunzip | tar -x
+$ tar -xzf nginx-VERSION.tar.gz
 $ cd nginx-VERSION
 ```
 
-__Build as static module in Nginx:__
+__Build as static module:__
 
 ```
 $ ./configure --add-module=/path/to/ngx-uname
 $ make
 $ sudo make install
+```
+
+__Build as a dynamic module:__
+
+```
 ```
 
 ### Usage
@@ -44,3 +49,13 @@ __Example output:__
   "machine": "x86_64"
 }
 ```
+
+### Testing
+
+There's an included Dockerfile that will build this module against various
+versions of Nginx and do a simple `curl` test against an endpoint.
+
+```
+$ make test
+```
+
